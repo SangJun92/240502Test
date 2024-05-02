@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="<c:url value="/book/add"/>">도서 등록</a>
+                       href="<c:url value="/book/addBook"/>">도서 등록</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"

@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form name="newBook" action="/book/add" class="form-horizontal" method="post" enctype="multipart/form-data">
+		<form name="newBook" action="/book/addBook" class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="form-group row">
 				<label class="col-sm-2">도서 코드</label>
 				<div class="col-sm-3">
