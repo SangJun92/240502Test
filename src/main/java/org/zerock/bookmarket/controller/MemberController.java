@@ -60,6 +60,6 @@ public class MemberController {
         session.removeAttribute("loginInfo");
         session.invalidate();
 
-        return "/";
+        return "redirect:/";
     }
 }
