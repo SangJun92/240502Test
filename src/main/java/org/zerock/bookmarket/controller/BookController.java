@@ -38,8 +38,6 @@ public class BookController {
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
             return "redirect:/book/addBook";
         }
-
-
         log.info("POST todo register.......");
         //실제 파일 이름 출력
         log.info(file.getOriginalFilename());
@@ -57,6 +55,16 @@ public class BookController {
         redirectAttributes.addFlashAttribute("message", "도서추가 완료");
         return "redirect:/";
     }
-    
 
+    @GetMapping("/addBook")
+    public String booksGet() {
+
+        return null;
+    }
+
+    @PostMapping("/addBook")
+    public String books() {
+
+        return null;
+    }
 }
