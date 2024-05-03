@@ -13,4 +13,9 @@ public interface BookMapper {
     List<BookVO> listBook();
 
     BookVO bookOne(String id);
+
+    void modify(BookVO bookVO);
+
+    void delete(String id);
+
 }

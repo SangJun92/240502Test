@@ -21,4 +21,21 @@
         select * from book where id = #{id}
     </select>
 
+    <update id="modify">
+        UPDATE book SET id=#{id},
+                        name=#{name},
+                        description=#{description},
+                        category=#{category},
+                        author=#{author},
+                        publisher=#{publisher},
+                        releaseDate=#{releaseDate},
+                        pages=#{pages},
+                        unitPrice=#{unitPrice},
+                        unitInStock=#{unitInStock},
+                        imgFileName=#{imgFileName}
+        WHERE id = #{id}
+    </update>
+    <delete id="delete">
+        delete from book where id = #{id}
+    </delete>
 </mapper>

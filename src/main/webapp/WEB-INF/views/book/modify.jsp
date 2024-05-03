@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<img src="/upload/${book.imgFileName}" style="width: 100%;"
+					<img src="/image/${book.imgFileName}" style="width: 100%;"
 						alt="image">
 				</div>
 				<div class="col-md-7">
@@ -87,14 +87,14 @@
 								<input type="text" id="unitInStock" name="unitInStock" class="form-control" value="${book.unitInStock}">
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="col-sm-2">상태</label>
-							<div class="col-sm-5">
-								<input type="radio" name="condition" value="New" ${book.condition=="New"?"checked":""}> 신규 도서
-								<input type="radio" name="condition" value="Old" ${book.condition=="Old"?"checked":""}> 중고 도서
-								<input type="radio" name="condition" value="E-Book" ${book.condition=="E-Book"?"checked":""}>  E-Book
-							</div>
-						</div>
+<%--						<div class="form-group row">--%>
+<%--							<label class="col-sm-2">상태</label>--%>
+<%--							<div class="col-sm-5">--%>
+<%--								<input type="radio" name="condition" value="New" ${book.condition=="New"?"checked":""}> 신규 도서--%>
+<%--								<input type="radio" name="condition" value="Old" ${book.condition=="Old"?"checked":""}> 중고 도서--%>
+<%--								<input type="radio" name="condition" value="E-Book" ${book.condition=="E-Book"?"checked":""}>  E-Book--%>
+<%--							</div>--%>
+<%--						</div>--%>
 						<div class="form-group row">
 							<label class="col-sm-2">이미지</label>
 							<div class="col-sm-5">

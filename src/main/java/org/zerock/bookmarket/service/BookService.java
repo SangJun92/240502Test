@@ -12,5 +12,7 @@ public interface BookService {
 
     BookDTO readOne(String id);
 
-//    BookDTO getOne(String id);
+    void updateBook(BookDTO bookDTO);
+
+    void remove(String id);
 }

@@ -44,6 +44,18 @@ public class BookServiceImpl implements BookService {
 
     }
 
+    @Override
+    public void updateBook(BookDTO bookDTO) {
+        BookVO bookVO = modelMapper.map(bookDTO, BookVO.class);
+
+        bookMapper.modify(bookVO);
+    }
+
+    @Override
+    public void remove(String id) {
+        bookMapper.delete(id);
+    }
+
 //    @Override
 //    public BookDTO getOne(String id) {
 //        return modelMapper.map(bookMapper.selectOne(id), BookDTO.class);

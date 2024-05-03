@@ -68,12 +68,38 @@ public class BookController {
         model.addAttribute("books", bookService.bookList());
     }
 
-    @GetMapping("/book")
+    @GetMapping({"/book","/modify"})
     public void book(String id, Model model) {
         BookDTO bookDTO = bookService.readOne(id);
         model.addAttribute("book", bookDTO);
         model.addAttribute("book", bookService.readOne(id));
     }
 
-//    @GetMapping("/modify")
+    @PostMapping("/modify")
+    public String modify(BookDTO bookDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes, MultipartFile file) {
+
+        if (bindingResult.hasErrors()) {
+            log.info("has errors.......");
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            redirectAttributes.addAttribute("book", bookDTO.getId());
+
+            return "redirect:/book/modify";
+        }
+        log.info(bookDTO);
+        bookDTO.setImgFileName(file.getOriginalFilename());
+
+        bookService.updateBook(bookDTO);
+        redirectAttributes.addAttribute("book", bookDTO.getId());
+        log.info(bookDTO);
+        return "redirect:/book/editBook";
+    }
+    @GetMapping("/remove")
+    public String remove(String id, RedirectAttributes redirectAttributes) {
+        log.info("-----------------remove-------------------");
+        log.info("id:"+id);
+        bookService.remove(id);
+
+        return "redirect:/book/editBook" ;
+    }
+
 }
