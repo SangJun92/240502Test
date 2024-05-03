@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bookmarketdb@localhost" uuid="b1e04924-897b-4472-ace4-5ce566c1978e">
+    <data-source source="LOCAL" name="bookmarketdb@localhost" uuid="b6a94e6e-80b4-45b7-b86a-31bd8dcf18f6">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <remarks>bookmarketdb</remarks>

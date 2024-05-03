@@ -60,6 +60,11 @@ public class MemberController {
         session.removeAttribute("loginInfo");
         session.invalidate();
 
+//        HttpSession session = req.getSession();
+//        System.out.println("실행 전 : " + session.getAttribute("loginInfo"));
+//        session.invalidate();
+//        System.out.println("실행 후 : " + session.getAttribute("loginInfo"));
+
         return "redirect:/";
     }
 }
