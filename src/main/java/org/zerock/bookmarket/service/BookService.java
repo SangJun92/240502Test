@@ -9,4 +9,8 @@ public interface BookService {
     void register(BookDTO bookDTO);
 
     List<BookDTO> bookList();
+
+    BookDTO readOne(String id);
+
+//    BookDTO getOne(String id);
 }

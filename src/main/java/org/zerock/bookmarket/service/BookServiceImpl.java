@@ -30,18 +30,22 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDTO> bookList() {
-        List<BookDTO> dtoList = bookMapper.listBook().stream()
+        List<BookDTO> bookList = bookMapper.listBook().stream()
                 .map(vo -> modelMapper.map(vo, BookDTO.class))
                 .collect(Collectors.toList());
 
-        return dtoList;
+        return bookList;
+    }
+
+    @Override
+    public BookDTO readOne(String id) {
+
+        return modelMapper.map(bookMapper.bookOne(id), BookDTO.class);
+
     }
 
 //    @Override
-//    public BookDTO getBook(String id) {
-//        BookVO bookVO = bookMapper.selectBook(id);
-//        BookDTO bookDTO = modelMapper.map(bookVO, BookDTO.class);
-//
-//        return bookDTO;
+//    public BookDTO getOne(String id) {
+//        return modelMapper.map(bookMapper.selectOne(id), BookDTO.class);
 //    }
 }

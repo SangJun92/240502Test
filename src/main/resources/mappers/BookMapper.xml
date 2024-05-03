@@ -17,4 +17,8 @@
         select * from book order by id desc
     </select>
 
+    <select id="bookOne" resultType="org.zerock.bookmarket.domain.BookVO">
+        select * from book where id = #{id}
+    </select>
+
 </mapper>

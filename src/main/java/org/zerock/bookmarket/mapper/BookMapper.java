@@ -8,9 +8,9 @@ public interface BookMapper {
 
     void addBook(BookVO bookVO);
 
-//    List<BookVO> selectAll();
-//
-//    BookVO selectBook(String id);
+    BookVO selectBook(String id);
 
     List<BookVO> listBook();
+
+    BookVO bookOne(String id);
 }

@@ -37,11 +37,7 @@ public class BookController {
     public String addBook(BookDTO bookDTO, RedirectAttributes redirectAttributes, MultipartFile file,
                           BindingResult bindingResult) throws IOException {
 
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/book/addBook";
-        }
-        log.info("POST todo register.......");
+        log.info("POST.......");
         //실제 파일 이름 출력
         log.info(file.getOriginalFilename());
         //파일의 크기
@@ -51,12 +47,17 @@ public class BookController {
         //파일을 저장하는 메서드 : new File("파일을 저장할 경로//파일이름.확장자")
         file.transferTo(new File("c://files//" + file.getOriginalFilename()));
 
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/book/addBook";
+        }
+
         bookDTO.setImgFileName(file.getOriginalFilename());
 
         log.info(bookDTO);
         bookService.register(bookDTO);
         redirectAttributes.addFlashAttribute("message", "도서추가 완료");
-        return "redirect:/";
+        return "redirect:/book/books";
     }
 
     @GetMapping({"/books", "/editBook"})
@@ -65,6 +66,14 @@ public class BookController {
         // 에러가 존재한다면, 출력후, 리다이렉트
 
         model.addAttribute("books", bookService.bookList());
-
     }
+
+    @GetMapping("/book")
+    public void book(String id, Model model) {
+        BookDTO bookDTO = bookService.readOne(id);
+        model.addAttribute("book", bookDTO);
+        model.addAttribute("book", bookService.readOne(id));
+    }
+
+//    @GetMapping("/modify")
 }

@@ -42,7 +42,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="<c:url value="/book/edit"/>">도서 편집</a>
+                       href="<c:url value="/book/editBook"/>">도서 편집</a>
                 </li>
                 <%--				<li class="nav-item">--%>
                 <%--					<a class="nav-link" --%>
