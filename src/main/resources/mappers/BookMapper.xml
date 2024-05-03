@@ -7,9 +7,14 @@
     <select id="getNow" resultType="string">
         select now()
     </select>
+
     <insert id="addBook">
         INSERT INTO book (id, name, description, category, author, publisher, releaseDate, pages, unitPrice, unitInStock, imgFileName)
         VALUES (#{id}, #{name}, #{description}, #{category}, #{author}, #{publisher}, #{releaseDate}, #{pages}, #{unitPrice}, #{unitInStock}, #{imgFileName})
     </insert>
+
+    <select id = "listBook" resultType="org.zerock.bookmarket.domain.BookVO">
+        select * from book order by id desc
+    </select>
 
 </mapper>

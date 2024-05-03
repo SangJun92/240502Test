@@ -1,10 +1,16 @@
 package org.zerock.bookmarket.mapper;
 
 import org.zerock.bookmarket.domain.BookVO;
-import org.zerock.bookmarket.domain.MemberVO;
-import org.zerock.bookmarket.dto.MemberDTO;
+
+import java.util.List;
 
 public interface BookMapper {
 
     void addBook(BookVO bookVO);
+
+//    List<BookVO> selectAll();
+//
+//    BookVO selectBook(String id);
+
+    List<BookVO> listBook();
 }

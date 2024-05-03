@@ -17,8 +17,4 @@
         where memberID = #{memberID}
           AND memberPW = #{memberPW}
     </select>
-<!--    <insert id="addBook">-->
-<!--        INSERT INTO bmember (memberID, memberPW, memberName, phone, address, email, createDate)-->
-<!--        VALUES (#{memberID}, #{memberPW}, #{memberName}, #{phone}, #{address}, #{email}, #{createDate})-->
-<!--    </insert>-->
 </mapper>

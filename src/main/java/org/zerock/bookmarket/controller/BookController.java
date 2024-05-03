@@ -3,6 +3,7 @@ package org.zerock.bookmarket.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.bookmarket.dto.BookDTO;
+import org.zerock.bookmarket.mapper.BookMapper;
 import org.zerock.bookmarket.service.BookService;
 
 import java.io.File;
@@ -22,6 +24,7 @@ import java.io.IOException;
 public class BookController {
 
     private final BookService bookService;
+    private final BookMapper bookMapper;
 
 
     @GetMapping("/addBook")
@@ -32,9 +35,9 @@ public class BookController {
 
     @PostMapping("/addBook")
     public String addBook(BookDTO bookDTO, RedirectAttributes redirectAttributes, MultipartFile file,
-                           BindingResult bindingResult) throws IOException {
+                          BindingResult bindingResult) throws IOException {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
             return "redirect:/book/addBook";
         }
@@ -56,15 +59,12 @@ public class BookController {
         return "redirect:/";
     }
 
-    @GetMapping("/addBook")
-    public String booksGet() {
+    @GetMapping({"/books", "/editBook"})
+    public void books(Model model) {
+        log.info("-------- /book/books --------");
+        // 에러가 존재한다면, 출력후, 리다이렉트
 
-        return null;
-    }
+        model.addAttribute("books", bookService.bookList());
 
-    @PostMapping("/addBook")
-    public String books() {
-
-        return null;
     }
 }
